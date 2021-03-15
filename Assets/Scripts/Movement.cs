@@ -33,7 +33,7 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        Controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump, guard, false); //move, crouch, jump   
+        Controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump, guard, false); //move, crouch, jump, block, attack   
         jump = false;
     }
 }
