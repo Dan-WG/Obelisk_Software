@@ -7,7 +7,10 @@ public class Movement : MonoBehaviour
     public CharacterController2D Controller;
     float horizontalMove = 0f;
     public float runSpeed = 40f;
+    public Animator animator;
+
     bool jump = false;
+    bool guard = false;
    
     // Update is called once per frame
     void Update()
@@ -17,11 +20,20 @@ public class Movement : MonoBehaviour
         {
             jump = true;
         }
+
+        if (Input.GetKeyDown("g"))
+        {
+            animator.SetBool("Guard", true);
+        }else if (Input.GetKeyUp("g"))
+        {
+            animator.SetBool("Guard", false);
+        }
+
     }
 
     void FixedUpdate()
     {
-        Controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump); //move, crouch, jump   
+        Controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump, guard, false); //move, crouch, jump   
         jump = false;
     }
 }
