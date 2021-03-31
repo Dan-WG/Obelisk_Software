@@ -4,7 +4,6 @@ using UnityEngine.Events;
 public class CharacterController2D : MonoBehaviour
 {
 	[SerializeField] private float m_JumpForce = 400f;                          // Amount of force added when the player jumps.
-	[Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;          // Amount of maxSpeed applied to crouching movement. 1 = 100%
 	[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;  // How much to smooth out the movement
 	[SerializeField] private bool m_AirControl = false;                         // Whether or not a player can steer while jumping;
 	[SerializeField] private LayerMask m_WhatIsGround;                          // A mask determining what is ground to the character
@@ -32,7 +31,7 @@ public class CharacterController2D : MonoBehaviour
 	public class BoolEvent : UnityEvent<bool> { }
 
 	public BoolEvent OnCrouchEvent;
-	private bool m_wasCrouching = false;
+	private bool m_Blocking = false;
 
 
     private void Start()
@@ -72,15 +71,15 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 
-	public void Move(float move, bool crouch, bool jump, bool guard, bool attack)
+	public void Move(float move, bool jump, bool guard, bool attack, bool Special)
 	{
 		// If crouching, check to see if the character can stand up
-		if (!crouch)
+		if (!guard)
 		{
 			// Ceilign for crouch
 			if (Physics2D.OverlapCircle(m_CeilingCheck.position, k_CeilingRadius, m_WhatIsGround))
 			{
-				crouch = true;
+				guard = true;
 			}
 		}
 
@@ -89,20 +88,20 @@ public class CharacterController2D : MonoBehaviour
 		{
 
 			// If crouching
-			if (crouch)
+			if (guard)
 			{
-				if (!m_wasCrouching)
+				if (!m_Blocking)
 				{
-					m_wasCrouching = true;
+					m_Blocking = true;
 					OnCrouchEvent.Invoke(true);
 				}
 
 				// Reduce the speed by the crouchSpeed multiplier
-				move *= m_CrouchSpeed;
+				move *= 0;
 
-				if (m_wasCrouching)
+				if (m_Blocking)
 				{
-					m_wasCrouching = false;
+					m_Blocking = false;
 					OnCrouchEvent.Invoke(false);
 				}
 			}

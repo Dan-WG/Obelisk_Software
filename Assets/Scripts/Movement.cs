@@ -9,8 +9,12 @@ public class Movement : MonoBehaviour
     public float runSpeed = 40f;
     public Animator animator;
 
+    bool Can_Move = true;
+
     bool jump = false;
     bool guard = false;
+    bool atk = false;
+    bool special = false;
    
     // Update is called once per frame
     void Update()
@@ -24,16 +28,37 @@ public class Movement : MonoBehaviour
         if (Input.GetKeyDown("g"))
         {
             animator.SetBool("Guard", true);
+            Can_Move = false;
         }else if (Input.GetKeyUp("g"))
         {
+            Can_Move = true;
             animator.SetBool("Guard", false);
         }
 
+        if (Input.GetKeyDown("h"))
+        {
+            animator.SetBool("Attack", true);
+            Can_Move = false;
+        }
+        else if (Input.GetKeyUp("h"))
+        {
+            Can_Move = true;
+            animator.SetBool("Attack", false);
+        }
     }
 
     void FixedUpdate()
     {
-        Controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump, guard, false); //move, crouch, jump, block, attack   
+        if (Can_Move)
+        {
+            Controller.Move(horizontalMove * Time.fixedDeltaTime, jump, guard, atk, special); //move, jump, block, attack 
+        }   
+        else if (!Can_Move)
+        {
+            Controller.Move(0.0f, jump, guard, atk, special); //move, jump, block, attack 
+        }
+          
         jump = false;
+
     }
 }
