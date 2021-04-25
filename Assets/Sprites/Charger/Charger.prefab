@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1519836991841680590}
   - component: {fileID: 1519836991841680625}
   - component: {fileID: 1519836991841680587}
+  - component: {fileID: -3628777900937616225}
   m_Layer: 9
   m_Name: Charger
   m_TagString: Untagged
@@ -117,7 +118,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_JumpForce: 200
-  m_CrouchSpeed: 0.36
   m_MovementSmoothing: 0.05
   m_AirControl: 1
   m_WhatIsGround:
@@ -198,6 +198,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8.892217, y: 19.73288}
   m_EdgeRadius: 0
+--- !u!114 &-3628777900937616225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519836991841680624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaa62b9eac24dba4ebb6e66af1114214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1519836993613526984
 GameObject:
   m_ObjectHideFlags: 0
