@@ -6,6 +6,7 @@ public class ChargerStats : MonoBehaviour
 {
     public int MaxHp = 200;
     public int currenthp;
+    public GameObject Charger;
 
     public HealthBar hpbar;
 
@@ -21,6 +22,11 @@ public class ChargerStats : MonoBehaviour
         {
             TakeDmg(10);
         }
+
+        if (currenthp <= 0)
+        {
+            Die();
+        }
     }
 
     void TakeDmg(int dmg)
@@ -28,5 +34,10 @@ public class ChargerStats : MonoBehaviour
         currenthp -= dmg;
 
         hpbar.SetHealth(currenthp);
+    }
+
+    void Die()
+    {
+        Object.Destroy(Charger, 0.1f);
     }
 }

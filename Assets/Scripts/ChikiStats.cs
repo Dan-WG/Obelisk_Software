@@ -6,6 +6,7 @@ public class ChikiStats : MonoBehaviour
 {
     public int MaxHp = 100;
     public int currenthp;
+    public GameObject Chikis;
 
     public HealthBar hpbar;
 
@@ -21,6 +22,11 @@ public class ChikiStats : MonoBehaviour
         {
             TakeDmg(10);
         }
+
+        if( currenthp <= 0)
+        {
+            Die();
+        }
     }
 
     void TakeDmg (int dmg)
@@ -28,5 +34,10 @@ public class ChikiStats : MonoBehaviour
         currenthp -= dmg;
 
         hpbar.SetHealth(currenthp);
+    }
+
+    void Die()
+    {
+        Object.Destroy(Chikis, 0.1f);
     }
 }
