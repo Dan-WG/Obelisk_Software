@@ -1068,6 +1068,14 @@ PrefabInstance:
       propertyPath: hpbar
       value: 
       objectReference: {fileID: 1293037982}
+    - target: {fileID: 7294888288473752729, guid: e69de970c89524d4da6894a16d8591f7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7294888288473752730, guid: e69de970c89524d4da6894a16d8591f7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7294888288473752735, guid: e69de970c89524d4da6894a16d8591f7, type: 3}
       propertyPath: m_RootOrder
       value: 1
