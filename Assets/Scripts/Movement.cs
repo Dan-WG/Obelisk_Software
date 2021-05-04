@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
     float horizontalMove = 0f;
     public float runSpeed = 40f;
     public Animator animator;
+    
 
     bool Can_Move = true;
 
@@ -15,12 +16,20 @@ public class Movement : MonoBehaviour
     bool guard = false;
     bool atk = false;
     bool special = false;
+
+    public Transform AtkPoint;
+    public float AtkRange = 1.0f;
+    public int Dmg = 15;
+    public float AtkRate = 1.0f;
+    private float ATkTime = 0f;
+
+    public LayerMask Players;
    
     // Update is called once per frame
     void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;   //a = -1    d = 1
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && Can_Move)
         {
             jump = true;
         }
@@ -34,12 +43,17 @@ public class Movement : MonoBehaviour
             Can_Move = true;
             animator.SetBool("Guard", false);
         }
-
-        if (Input.GetKeyDown("h"))
+        if(Time.time >= ATkTime)
         {
-            animator.SetBool("Attack", true);
-            Can_Move = false;
+            if (Input.GetKeyDown("h"))
+            {
+                animator.SetBool("Attack", true);
+                Attack();
+                Can_Move = false;
+                ATkTime = Time.time + 1f / AtkRate;
+            }
         }
+       
         else if (Input.GetKeyUp("h"))
         {
             Can_Move = true;
@@ -60,5 +74,28 @@ public class Movement : MonoBehaviour
           
         jump = false;
 
+    }
+    void Attack()
+    {
+        
+        Collider2D[] PlayersHit = Physics2D.OverlapCircleAll(AtkPoint.position, AtkRange, Players); //point,radius, layers
+
+        foreach(Collider2D player in PlayersHit)
+        {
+            if (guard == true)
+            {
+                player.GetComponent<CharacterStats>().TakeDmg(Dmg/2);
+            }
+            else
+            player.GetComponent<CharacterStats>().TakeDmg(Dmg);
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (AtkPoint == null)
+            return;
+
+        Gizmos.DrawWireSphere(AtkPoint.position, AtkRange);
     }
 }

@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChargerStats : MonoBehaviour
+public class CharacterStats : MonoBehaviour
 {
     public int MaxHp = 200;
     public int currenthp;
-    public GameObject Charger;
+    public GameObject Character;
 
     public HealthBar hpbar;
 
@@ -18,18 +18,13 @@ public class ChargerStats : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDmg(10);
-        }
-
         if (currenthp <= 0) //die on 0 hp
         {
             Die();
         }
     }
 
-    void TakeDmg(int dmg) //take dmg accordingly
+    public void TakeDmg(int dmg) //take dmg accordingly
     {
         currenthp -= dmg;
 
@@ -38,6 +33,6 @@ public class ChargerStats : MonoBehaviour
 
     void Die() //Destroy gameobject
     {
-        Object.Destroy(Charger, 0.1f);
+        Object.Destroy(Character, 0.1f);
     }
 }
