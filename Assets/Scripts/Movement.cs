@@ -13,7 +13,7 @@ public class Movement : MonoBehaviour
     bool Can_Move = true;
 
     bool jump = false;
-    bool guard = false;
+    public bool guard = false;
     bool atk = false;
     bool special = false;
 
