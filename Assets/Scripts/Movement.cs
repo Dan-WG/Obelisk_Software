@@ -79,16 +79,21 @@ public class Movement : MonoBehaviour
     {
         
         Collider2D[] PlayersHit = Physics2D.OverlapCircleAll(AtkPoint.position, AtkRange, Players); //point,radius, layers
-
-        foreach(Collider2D player in PlayersHit)
+        if(guard == true)
         {
-            if (guard == true)
+            foreach (Collider2D player in PlayersHit)
             {
-                player.GetComponent<CharacterStats>().TakeDmg(Dmg/2);
+                player.GetComponent<CharacterStats>().TakeDmg(Dmg);
             }
-            else
-            player.GetComponent<CharacterStats>().TakeDmg(Dmg);
         }
+        else
+        {
+            foreach (Collider2D player in PlayersHit)
+            {
+                player.GetComponent<CharacterStats>().TakeDmg(Dmg);
+            }
+        }
+        
     }
 
     private void OnDrawGizmosSelected()

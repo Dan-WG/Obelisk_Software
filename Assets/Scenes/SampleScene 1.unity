@@ -988,7 +988,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1246766158}
   - component: {fileID: 1246766157}
-  - component: {fileID: 1246766156}
   m_Layer: 0
   m_Name: Sounds
   m_TagString: Untagged
@@ -996,18 +995,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1246766156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1246766155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9bc4d7f51a171048a3fe74cd916409b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1246766157
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1174,7 +1161,7 @@ PrefabInstance:
       objectReference: {fileID: 1369397493}
     - target: {fileID: 7294888288473752729, guid: e69de970c89524d4da6894a16d8591f7, type: 3}
       propertyPath: guard
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7294888288473752729, guid: e69de970c89524d4da6894a16d8591f7, type: 3}
       propertyPath: AtkPoint
@@ -1190,7 +1177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7294888288473752729, guid: e69de970c89524d4da6894a16d8591f7, type: 3}
       propertyPath: Players.m_Bits
-      value: 512
+      value: 1024
       objectReference: {fileID: 0}
     - target: {fileID: 7294888288473752730, guid: e69de970c89524d4da6894a16d8591f7, type: 3}
       propertyPath: m_Enabled
@@ -1243,6 +1230,18 @@ PrefabInstance:
     - target: {fileID: 7294888288473752741, guid: e69de970c89524d4da6894a16d8591f7, type: 3}
       propertyPath: m_Name
       value: Charger 1 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7294888288473752741, guid: e69de970c89524d4da6894a16d8591f7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7294888289726558109, guid: e69de970c89524d4da6894a16d8591f7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7294888289744480074, guid: e69de970c89524d4da6894a16d8591f7, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e69de970c89524d4da6894a16d8591f7, type: 3}
@@ -1453,9 +1452,21 @@ PrefabInstance:
       propertyPath: hpbar
       value: 
       objectReference: {fileID: 1496433140}
+    - target: {fileID: 3855467807972834591, guid: fa6e4be3ab951aa44850b8f12c082c90, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3855467808250690922, guid: fa6e4be3ab951aa44850b8f12c082c90, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3855467808580409230, guid: fa6e4be3ab951aa44850b8f12c082c90, type: 3}
       propertyPath: m_Name
       value: Chikis Iz_00000 1 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3855467808580409230, guid: fa6e4be3ab951aa44850b8f12c082c90, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3855467808580409265, guid: fa6e4be3ab951aa44850b8f12c082c90, type: 3}
       propertyPath: m_RootOrder
@@ -1521,6 +1532,102 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3855467808580409230, guid: fa6e4be3ab951aa44850b8f12c082c90, type: 3}
   m_PrefabInstance: {fileID: 1997313751}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &1997313753
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997313752}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 0a2e145ba1c19d842ad2d217a5795084, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.825
+  m_Pitch: 1.84
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &1997313754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1551,7 +1658,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2000061409}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
