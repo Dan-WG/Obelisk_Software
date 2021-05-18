@@ -107,13 +107,15 @@ public class Movement : MonoBehaviour
         {
             if (Input.GetKeyDown("j"))
             {
+                Can_Move = false;
                 animator.SetBool("Special", true);
-                GameObject shot = Instantiate(specialSprite, gameObject.transform.position, Quaternion.Euler(0,0,0));
+                GameObject shot = Instantiate(specialSprite, AtkPoint.position, Quaternion.Euler(0,0,0));
                 Destroy(shot, 1f);
             }
             else 
                 if (Input.GetKeyUp("j"))
             {
+                Can_Move = true;
                 animator.SetBool("Special", false);
             }
             
