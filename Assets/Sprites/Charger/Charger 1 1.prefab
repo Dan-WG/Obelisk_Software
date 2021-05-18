@@ -105,6 +105,15 @@ MonoBehaviour:
   Controller: {fileID: 7294888288473752730}
   runSpeed: 30
   animator: {fileID: 7294888288473752731}
+  specialSprite: {fileID: 6112355430369804062, guid: cb58e6a17dc2fc949b9ecdffdc580fed, type: 3}
+  guard: 0
+  AtkPoint: {fileID: 0}
+  AtkRange: 1
+  Dmg: 15
+  AtkRate: 1
+  Players:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &7294888288473752730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,7 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHp: 200
   currenthp: 0
-  Charger: {fileID: 7294888288473752741}
+  Character: {fileID: 0}
   hpbar: {fileID: 0}
 --- !u!1 &7294888289726558109
 GameObject:
