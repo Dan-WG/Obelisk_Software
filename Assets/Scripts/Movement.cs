@@ -8,7 +8,9 @@ public class Movement : MonoBehaviour
     float horizontalMove = 0f;
     public float runSpeed = 40f;
     public Animator animator;
-    
+
+    [SerializeField]
+    GameObject specialSprite;
 
     bool Can_Move = true;
 
@@ -34,7 +36,7 @@ public class Movement : MonoBehaviour
             jump = true;
         }
 
-        if (Input.GetKeyDown("g"))
+        if (Input.GetKey("g"))
         {
             animator.SetBool("Guard", true);
             Can_Move = false;
@@ -45,7 +47,7 @@ public class Movement : MonoBehaviour
         }
         if(Time.time >= ATkTime)
         {
-            if (Input.GetKeyDown("h"))
+            if (Input.GetKey("h"))
             {
                 animator.SetBool("Attack", true);
                 Attack();
@@ -59,6 +61,8 @@ public class Movement : MonoBehaviour
             Can_Move = true;
             animator.SetBool("Attack", false);
         }
+
+        Special();
     }
 
     void FixedUpdate()
@@ -96,6 +100,25 @@ public class Movement : MonoBehaviour
         
     }
 
+    void Special()
+    {
+        
+        if(Time.time >= AtkRate)
+        {
+            if (Input.GetKeyDown("j"))
+            {
+                animator.SetBool("Special", true);
+                GameObject shot = Instantiate(specialSprite, gameObject.transform.position, Quaternion.Euler(0,0,0));
+                Destroy(shot, 1f);
+            }
+            else 
+                if (Input.GetKeyUp("j"))
+            {
+                animator.SetBool("Special", false);
+            }
+            
+        }
+    }
     private void OnDrawGizmosSelected()
     {
         if (AtkPoint == null)

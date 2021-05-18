@@ -1537,6 +1537,10 @@ PrefabInstance:
       value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3855467808580409266, guid: fa6e4be3ab951aa44850b8f12c082c90, type: 3}
+      propertyPath: specialSprite
+      value: 
+      objectReference: {fileID: 3199597495133082681, guid: 3025ea053eb2db444a381cca4d492103, type: 3}
+    - target: {fileID: 3855467808580409266, guid: fa6e4be3ab951aa44850b8f12c082c90, type: 3}
       propertyPath: Players.m_Bits
       value: 512
       objectReference: {fileID: 0}
