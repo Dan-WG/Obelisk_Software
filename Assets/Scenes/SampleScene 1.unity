@@ -1160,13 +1160,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1369397493}
     - target: {fileID: 7294888288473752729, guid: e69de970c89524d4da6894a16d8591f7, type: 3}
+      propertyPath: Dmg
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7294888288473752729, guid: e69de970c89524d4da6894a16d8591f7, type: 3}
       propertyPath: guard
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7294888288473752729, guid: e69de970c89524d4da6894a16d8591f7, type: 3}
+      propertyPath: AtkRate
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7294888288473752729, guid: e69de970c89524d4da6894a16d8591f7, type: 3}
       propertyPath: AtkPoint
       value: 
       objectReference: {fileID: 459776814}
+    - target: {fileID: 7294888288473752729, guid: e69de970c89524d4da6894a16d8591f7, type: 3}
+      propertyPath: AtkRange
+      value: 0.38
+      objectReference: {fileID: 0}
     - target: {fileID: 7294888288473752729, guid: e69de970c89524d4da6894a16d8591f7, type: 3}
       propertyPath: runSpeed
       value: 0
@@ -1513,12 +1525,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3855467808580409266, guid: fa6e4be3ab951aa44850b8f12c082c90, type: 3}
+      propertyPath: AtkRate
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3855467808580409266, guid: fa6e4be3ab951aa44850b8f12c082c90, type: 3}
       propertyPath: AtkPoint
       value: 
       objectReference: {fileID: 2000061409}
     - target: {fileID: 3855467808580409266, guid: fa6e4be3ab951aa44850b8f12c082c90, type: 3}
       propertyPath: AtkRange
-      value: 1.05
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3855467808580409266, guid: fa6e4be3ab951aa44850b8f12c082c90, type: 3}
       propertyPath: Players.m_Bits
