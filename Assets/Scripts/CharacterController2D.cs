@@ -19,6 +19,7 @@ public class CharacterController2D : MonoBehaviour
 	public bool m_FacingRight = false;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
 
+
 	public int airjumps = 1;
 	int jumpcount;
 
@@ -68,6 +69,8 @@ public class CharacterController2D : MonoBehaviour
 					OnLandEvent.Invoke();
 			}
 		}
+
+
 	}
 
 
@@ -133,9 +136,7 @@ public class CharacterController2D : MonoBehaviour
 		}
 		
 	}
-
-
-	private void Flip()
+    private void Flip()
 	{
 		//Flip sprite
 		m_FacingRight = !m_FacingRight;

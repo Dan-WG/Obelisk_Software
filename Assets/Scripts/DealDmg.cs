@@ -7,7 +7,7 @@ public class DealDmg : MonoBehaviour
     public int DmgDealt;
     public LayerMask Players;
     Collider2D[] PlayersHit;
-    Vector2 size = new Vector2(0.2f, 0.2f);
+    
  
     // Update is called once per frame
     void FixedUpdate()
@@ -16,11 +16,12 @@ public class DealDmg : MonoBehaviour
 
         foreach (Collider2D player in PlayersHit)
             {
-            Debug.Log(player.name);
-            this.GetComponent<SpriteRenderer>().enabled = false;
-            this.GetComponent<Collider2D>().enabled = false;
+            //Debug.Log(player.name);
+
+           
+            Destroy(gameObject);
             player.GetComponent<CharacterStats>().TakeDmg(DmgDealt);
-            PlayersHit = null;
+         
             }
 
 

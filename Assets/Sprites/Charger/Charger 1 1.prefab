@@ -285,8 +285,8 @@ MonoBehaviour:
   Controller: {fileID: 2542494138090642171}
   runSpeed: 40
   animator: {fileID: 2542494138090642170}
-  specialSprite: {fileID: 6112355430369804062, guid: cb58e6a17dc2fc949b9ecdffdc580fed, type: 3}
-  Bubble: {fileID: 3835219785107765389, guid: 59c3aaea1d1fe2a4cb1495fdcab8c8df, type: 3}
+  specialSprite: {fileID: 5395795857369456694, guid: b6bab8a9d49b48c4c9e262d66336ce8f, type: 3}
+  Bubble: {fileID: 6464280190178745972, guid: 59c3aaea1d1fe2a4cb1495fdcab8c8df, type: 3}
   guard: 0
   AtkPoint: {fileID: 5076795712363498229}
   AtkRange: 1

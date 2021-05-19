@@ -28,7 +28,7 @@ public class Movement : MonoBehaviour
     private float ATkTime = 0f;
 
     public LayerMask Players;
-   
+
     // Update is called once per frame
     void Update()
     {
@@ -42,12 +42,13 @@ public class Movement : MonoBehaviour
         {
             animator.SetBool("Guard", true);
             Can_Move = false;
-        }else if (Input.GetKeyUp("g"))
+        }
+        else if (Input.GetKeyUp("g"))
         {
             Can_Move = true;
             animator.SetBool("Guard", false);
         }
-        if(Time.time >= ATkTime)
+        if (Time.time >= ATkTime)
         {
             if (Input.GetKey("h"))
             {
@@ -59,16 +60,36 @@ public class Movement : MonoBehaviour
                 ATkTime = Time.time + 1f / AtkRate;
             }
         }
-       
+
         else if (Input.GetKeyUp("h"))
         {
             Can_Move = true;
             animator.SetBool("Attack", false);
         }
+        //Special
+        if (Time.time >= ATkTime)
+        {
+            if (Input.GetKeyDown("j"))
+            {
+                
+                animator.SetBool("Special", true);
+                GameObject shot = Instantiate(specialSprite, AtkPoint.position, Quaternion.Euler(0, 0, 0));
+                Destroy(shot, 1f);
+                Can_Move = false;
+                ATkTime = Time.time + 1f / AtkRate;
+            }
+            else if (Input.GetKeyUp("j"))
+            {
+                Can_Move = true;
+                animator.SetBool("Special", false);
+            }
 
-        Special();
+            
+            
+           
+        }
+
     }
-
     void FixedUpdate()
     {
         if (Can_Move)
@@ -91,7 +112,7 @@ public class Movement : MonoBehaviour
         {
             foreach (Collider2D player in PlayersHit)
             {
-                player.GetComponent<CharacterStats>().TakeDmg(Dmg);
+                player.GetComponent<CharacterStats>().TakeDmg(Dmg/2);
             }
         }
         else
@@ -104,27 +125,7 @@ public class Movement : MonoBehaviour
         
     }
 
-    void Special()
-    {
-        
-        if(Time.time >= AtkRate)
-        {
-            if (Input.GetKeyDown("j"))
-            {
-                Can_Move = false;
-                animator.SetBool("Special", true);
-                GameObject shot = Instantiate(specialSprite, AtkPoint.position, Quaternion.Euler(0,0,0));
-                Destroy(shot, 1f);
-            }
-            else 
-                if (Input.GetKeyUp("j"))
-            {
-                Can_Move = true;
-                animator.SetBool("Special", false);
-            }
-            
-        }
-    }
+ 
     private void OnDrawGizmosSelected()
     {
         if (AtkPoint == null)
