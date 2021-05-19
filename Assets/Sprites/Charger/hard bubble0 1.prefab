@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  check: {fileID: 2542494138090642116, guid: e69de970c89524d4da6894a16d8591f7, type: 3}
+  bicho: {fileID: 2542494138090642116, guid: e69de970c89524d4da6894a16d8591f7, type: 3}
 --- !u!114 &8690408601627719086
 MonoBehaviour:
   m_ObjectHideFlags: 0

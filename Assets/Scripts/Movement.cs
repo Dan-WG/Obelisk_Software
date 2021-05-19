@@ -78,17 +78,13 @@ public class Movement : MonoBehaviour
                 Can_Move = false;
                 ATkTime = Time.time + 1f / AtkRate;
             }
-            else if (Input.GetKeyUp("j"))
-            {
-                Can_Move = true;
-                animator.SetBool("Special", false);
-            }
-
-            
-            
-           
+   
         }
-
+        else if (Input.GetKeyUp("j"))
+        {
+            Can_Move = true;
+            animator.SetBool("Special", false);
+        }
     }
     void FixedUpdate()
     {
@@ -125,7 +121,8 @@ public class Movement : MonoBehaviour
         
     }
 
- 
+
+
     private void OnDrawGizmosSelected()
     {
         if (AtkPoint == null)
