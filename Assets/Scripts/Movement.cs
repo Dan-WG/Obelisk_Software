@@ -11,6 +11,8 @@ public class Movement : MonoBehaviour
 
     [SerializeField]
     GameObject specialSprite;
+    [SerializeField]
+    GameObject Bubble;
 
     bool Can_Move = true;
 
@@ -50,7 +52,9 @@ public class Movement : MonoBehaviour
             if (Input.GetKey("h"))
             {
                 animator.SetBool("Attack", true);
+                GameObject bubble = Instantiate(Bubble, AtkPoint.position, Quaternion.Euler(0, 0, 0));
                 Attack();
+                Destroy(bubble, 2.0f);
                 Can_Move = false;
                 ATkTime = Time.time + 1f / AtkRate;
             }
