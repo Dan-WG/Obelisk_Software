@@ -6,11 +6,13 @@ public class Move : MonoBehaviour
 {
    public int speed = 3;
    public GameObject bicho;
+   Vector3 look;
+
 
     // Update is called once per frame
-    void Start()
+    void Awake()
     {
-        if (bicho.transform.localScale.x < 0)
+        if (look.x < 0)
         {
             flip();
         }
@@ -18,13 +20,14 @@ public class Move : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(bicho.transform.localScale.x);
+        look = bicho.transform.lossyScale;
+        //Debug.Log(look.x);
          //sacar el componente d ela scale del bicho y checar si e spositivo o negativo
-       if (bicho.transform.localScale.x > 0)
+       if (look.x > 0)
         {
             transform.Translate(Vector2.left * speed * Time.deltaTime);
         }
-       else if (bicho.transform.localScale.x < 0)
+       else if (look.x < 0)
         {
             transform.Translate(Vector2.right * speed * Time.deltaTime);
         }            
@@ -35,5 +38,6 @@ public class Move : MonoBehaviour
         theScale.x *= -1;
         transform.localScale = theScale;
     }
+
 
 }

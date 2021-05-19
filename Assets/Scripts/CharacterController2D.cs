@@ -68,7 +68,7 @@ public class CharacterController2D : MonoBehaviour
 					OnLandEvent.Invoke();
 			}
 		}
-
+		//Debug.Log(this.transform.lossyScale.x);
 
 	}
 
@@ -137,7 +137,9 @@ public class CharacterController2D : MonoBehaviour
        
 		
 	}
-    private void Flip()
+
+
+	private void Flip()
 	{
 		//Flip sprite
 		m_FacingRight = !m_FacingRight;
