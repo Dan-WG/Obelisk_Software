@@ -21,7 +21,7 @@ public class Move : MonoBehaviour
     private void Update()
     {
         look = bicho.transform.lossyScale;
-        //Debug.Log(look.x);
+        Debug.Log(look.x);
          //sacar el componente d ela scale del bicho y checar si e spositivo o negativo
        if (look.x > 0)
         {
