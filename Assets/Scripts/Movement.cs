@@ -9,44 +9,83 @@ public class Movement : MonoBehaviour
     public float runSpeed = 40f;
     public Animator animator;
 
+    [SerializeField]
+    GameObject specialSprite;
+    [SerializeField]
+    GameObject Bubble;
+
     bool Can_Move = true;
 
     bool jump = false;
-    bool guard = false;
+    public bool guard = false;
     bool atk = false;
     bool special = false;
-   
+
+    public Transform AtkPoint;
+    public float AtkRange = 1.0f;
+    public int Dmg = 15;
+    public float AtkRate = 1.0f;
+    private float ATkTime = 0f;
+
+    public LayerMask Players;
+
     // Update is called once per frame
     void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;   //a = -1    d = 1
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && Can_Move)
         {
             jump = true;
         }
 
-        if (Input.GetKeyDown("g"))
+        if (Input.GetKey("g"))
         {
             animator.SetBool("Guard", true);
             Can_Move = false;
-        }else if (Input.GetKeyUp("g"))
+        }
+        else if (Input.GetKeyUp("g"))
         {
             Can_Move = true;
             animator.SetBool("Guard", false);
         }
-
-        if (Input.GetKeyDown("h"))
+        if (Time.time >= ATkTime)
         {
-            animator.SetBool("Attack", true);
-            Can_Move = false;
+            if (Input.GetKey("h"))
+            {
+                animator.SetBool("Attack", true);
+                GameObject bubble = Instantiate(Bubble, AtkPoint.position, Quaternion.Euler(0, 0, 0));
+                Attack();
+                Destroy(bubble, 2.0f);
+                Can_Move = false;
+                ATkTime = Time.time + 1f / AtkRate;
+            }
         }
+
         else if (Input.GetKeyUp("h"))
         {
             Can_Move = true;
             animator.SetBool("Attack", false);
         }
+        //Special
+        if (Time.time >= ATkTime)
+        {
+            if (Input.GetKeyDown("j"))
+            {
+                
+                animator.SetBool("Special", true);
+                GameObject shot = Instantiate(specialSprite, AtkPoint.position, Quaternion.Euler(0, 0, 0));
+                Destroy(shot, 1f);
+                Can_Move = false;
+                ATkTime = Time.time + 1f / AtkRate;
+            }
+   
+        }
+        else if (Input.GetKeyUp("j"))
+        {
+            Can_Move = true;
+            animator.SetBool("Special", false);
+        }
     }
-
     void FixedUpdate()
     {
         if (Can_Move)
@@ -60,5 +99,35 @@ public class Movement : MonoBehaviour
           
         jump = false;
 
+    }
+    void Attack()
+    {
+        
+        Collider2D[] PlayersHit = Physics2D.OverlapCircleAll(AtkPoint.position, AtkRange, Players); //point,radius, layers
+        if(guard == true)
+        {
+            foreach (Collider2D player in PlayersHit)
+            {
+                player.GetComponent<CharacterStats>().TakeDmg(Dmg/2);
+            }
+        }
+        else
+        {
+            foreach (Collider2D player in PlayersHit)
+            {
+                player.GetComponent<CharacterStats>().TakeDmg(Dmg);
+            }
+        }
+        
+    }
+
+
+
+    private void OnDrawGizmosSelected()
+    {
+        if (AtkPoint == null)
+            return;
+
+        Gizmos.DrawWireSphere(AtkPoint.position, AtkRange);
     }
 }
