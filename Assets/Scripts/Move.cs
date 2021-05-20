@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
-   public int speed = 3;
-   public GameObject bicho;
-   Vector3 look;
+    public int speed = 3;
+    public GameObject bicho;
+    bool facingRight = false;
 
+    private CharacterController2D controller;
 
     // Update is called once per frame
     void Awake()
     {
-        if (look.x < 0)
+        bicho = GameObject.FindGameObjectWithTag("Player");
+        controller = bicho.GetComponent<CharacterController2D>();
+
+        facingRight = controller.m_FacingRight;
+
+        if (facingRight)
         {
             flip();
         }
@@ -20,17 +26,15 @@ public class Move : MonoBehaviour
 
     private void Update()
     {
-        look = bicho.transform.lossyScale;
-        Debug.Log(look.x);
-         //sacar el componente d ela scale del bicho y checar si e spositivo o negativo
-       if (look.x > 0)
+        //sacar el componente d ela scale del bicho y checar si e spositivo o negativo
+        if (facingRight)
+        {
+            transform.Translate(Vector2.right * speed * Time.deltaTime);
+        }
+        else if (!facingRight)
         {
             transform.Translate(Vector2.left * speed * Time.deltaTime);
         }
-       else if (look.x < 0)
-        {
-            transform.Translate(Vector2.right * speed * Time.deltaTime);
-        }            
     }
     void flip()
     {
