@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: d9aec29f6fb698147a1902ba721ada45
   - enabled: 1
-    path: Assets/Scenes/SampleScene 1.unity
+    path: Assets/Scenes/Rock WOrld.unity
     guid: 064e5cd8c169e6145b8281e0c0fe6420
   m_configObjects: {}
