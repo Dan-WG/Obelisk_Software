@@ -18,7 +18,7 @@ public class AICharacterController : MonoBehaviour
 
     private void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Dude");
+        Player = GameObject.FindGameObjectWithTag("Player");
         target = Player;
     }
 
@@ -44,7 +44,7 @@ public class AICharacterController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!(gameObject.tag == "Dude"))
+        if (!(gameObject.tag == "Player"))
         {
             int atknum = UnityEngine.Random.Range(0, 3);
 
