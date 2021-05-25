@@ -16,10 +16,10 @@ public class Movement : MonoBehaviour
 
     bool Can_Move = true;
 
-    bool jump = false;
+    public bool jump = false;
     public bool guard = false;
-    bool atk = false;
-    bool special = false;
+    public bool atk = false;
+    public bool special = false;
 
     public Transform AtkPoint;
     public float AtkRange = 1.0f;
