@@ -34,5 +34,7 @@ public class CharacterStats : MonoBehaviour
     void Die() //Destroy gameobject
     {
         Object.Destroy(Character, 0.1f);
+        FindObjectOfType<GameManager>().EndGame();
+        
     }
 }
