@@ -38,7 +38,7 @@ public class Move2 : MonoBehaviour
             jump = true;
         }
 
-        if (Input.GetKey("c"))
+        if (Input.GetKeyDown("c"))
         {
             Debug.Log("si esta bloqueando");
             animator.SetBool("block", true);

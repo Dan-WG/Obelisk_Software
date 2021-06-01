@@ -38,7 +38,7 @@ public class Movement : MonoBehaviour
             jump = true;
         }
 
-        if (Input.GetKey("j"))
+        if (Input.GetKeyDown("j"))
         {
             animator.SetBool("Guard", true);
             guard = true;
