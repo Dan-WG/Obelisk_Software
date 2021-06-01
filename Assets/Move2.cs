@@ -47,6 +47,7 @@ public class Move2 : MonoBehaviour
         }
         else if (Input.GetKeyUp("c"))
         {
+            Debug.Log("no bloqueo");
             guard = false;
             Can_Move = true;
             animator.SetBool("block", false);
