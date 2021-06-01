@@ -12,23 +12,19 @@ public class DealDamage2 : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        PlayersHit = Physics2D.OverlapBoxAll(gameObject.transform.position, this.transform.lossyScale, 0.0f, Players);
+        PlayersHit = Physics2D.OverlapBoxAll(gameObject.transform.position, this.transform.lossyScale*2, 0.0f, Players);
 
         foreach (Collider2D player in PlayersHit)
         {
          
-
-
-            
-            player.GetComponent<CharacterStats>().TakeDmg(DmgDealt);
-            
+            player.GetComponent<CharacterStats>().TakeDmg(DmgDealt);   
 
         }
         destroy();
 
     }
     IEnumerator destroy(){
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(.6f);
         Destroy(gameObject);
         
     }
