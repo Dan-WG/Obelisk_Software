@@ -1,18 +1,17 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class Move2 : MonoBehaviour
 {
-    public CharacterController2D Controller;
+    public P2Controller Controller;
     float horizontalMove = 0f;
     public float runSpeed = 40f;
     public Animator animator;
 
     [SerializeField]
     GameObject specialSprite;
-    [SerializeField]
-    GameObject Bubble;
+
 
     bool Can_Move = true;
 
@@ -32,38 +31,40 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;   //a = -1    d = 1
-        if (Input.GetButtonDown("Jump") && Can_Move)
+
+        horizontalMove = Input.GetAxisRaw("P2Horizontal") * runSpeed;   //a = -1    d = 1
+        if (Input.GetKey("w") && Can_Move)
         {
             jump = true;
         }
 
-        if (Input.GetKey("j"))
+        if (Input.GetKey("c"))
         {
-            animator.SetBool("Guard", true);
+            Debug.Log("si esta bloqueando");
+            animator.SetBool("block", true);
             guard = true;
             Can_Move = false;
         }
-        else if (Input.GetKeyUp("j"))
+        else if (Input.GetKeyUp("c"))
         {
-            Can_Move = true;
-            animator.SetBool("Guard", false);
             guard = false;
+            Can_Move = true;
+            animator.SetBool("block", false);
         }
         if (Time.time >= ATkTime)
         {
-            if (Input.GetKey("k"))
+            if (Input.GetKey("v"))
             {
                 animator.SetBool("Attack", true);
-                GameObject bubble = Instantiate(Bubble, AtkPoint.position, Quaternion.Euler(0, 0, 0));
+
                 Attack();
-                Destroy(bubble, 2.0f);
+
                 Can_Move = false;
                 ATkTime = Time.time + 1f / AtkRate;
             }
         }
 
-        else if (Input.GetKeyUp("k"))
+        else if (Input.GetKeyUp("v"))
         {
             Can_Move = true;
             animator.SetBool("Attack", false);
@@ -71,18 +72,18 @@ public class Movement : MonoBehaviour
         //Special
         if (Time.time >= ATkTime)
         {
-            if (Input.GetKeyDown("l"))
+            if (Input.GetKey("b"))
             {
-                
+
                 animator.SetBool("Special", true);
                 GameObject shot = Instantiate(specialSprite, AtkPoint.position, Quaternion.Euler(0, 0, 0));
                 Destroy(shot, 1f);
                 Can_Move = false;
                 ATkTime = Time.time + 1f / AtkRate;
             }
-   
+
         }
-        else if (Input.GetKeyUp("l"))
+        else if (Input.GetKeyUp("b"))
         {
             Can_Move = true;
             animator.SetBool("Special", false);
@@ -93,20 +94,20 @@ public class Movement : MonoBehaviour
         if (Can_Move)
         {
             Controller.Move(horizontalMove * Time.fixedDeltaTime, jump, guard, atk, special); //move, jump, block, attack 
-        }   
+        }
         else if (!Can_Move)
         {
             Controller.Move(0.0f, jump, guard, atk, special); //move, jump, block, attack 
         }
-          
+
         jump = false;
 
     }
     void Attack()
     {
-        
+
         Collider2D[] PlayersHit = Physics2D.OverlapCircleAll(AtkPoint.position, AtkRange, Players); //point,radius, layers
-        if(guard == true)
+        if (guard == true)
         {
             foreach (Collider2D player in PlayersHit)
             {
@@ -120,7 +121,7 @@ public class Movement : MonoBehaviour
                 player.GetComponent<CharacterStats>().TakeDmg(Dmg);
             }
         }
-        
+
     }
 
 

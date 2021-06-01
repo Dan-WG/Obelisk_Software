@@ -100,8 +100,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7635171219162440034}
   - component: {fileID: 7635171219162440033}
-  - component: {fileID: 7635171219162440032}
-  - component: {fileID: 7635171219162440031}
   - component: {fileID: 7635171219162440030}
   - component: {fileID: 7635171219162440029}
   - component: {fileID: 7635171219162440028}
@@ -183,59 +181,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7635171219162440032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7635171219162440024}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 261c7b98a371e574b93a665b4d8544cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_JumpForce: 275
-  m_MovementSmoothing: 0.05
-  m_AirControl: 1
-  m_WhatIsGround:
-    serializedVersion: 2
-    m_Bits: 256
-  m_GroundCheck: {fileID: 7635171218903612688}
-  m_CeilingCheck: {fileID: 7635171218842293673}
-  m_FacingRight: 0
-  airjumps: 1
-  OnLandEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  OnCrouchEvent:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &7635171219162440031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7635171219162440024}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53039a35eaa4a5d4ebc265f7c4ed9ccd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Controller: {fileID: 7635171219162440032}
-  runSpeed: 60
-  animator: {fileID: 7635171219162440030}
-  specialSprite: {fileID: 3199597495133082681, guid: 3025ea053eb2db444a381cca4d492103, type: 3}
-  Bubble: {fileID: 0}
-  guard: 0
-  AtkPoint: {fileID: 7635171219159692385}
-  AtkRange: 0.4
-  Dmg: 15
-  AtkRate: 0.75
-  Players:
-    serializedVersion: 2
-    m_Bits: 512
 --- !u!95 &7635171219162440030
 Animator:
   serializedVersion: 3
