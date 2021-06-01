@@ -40,17 +40,19 @@ public class Move2 : MonoBehaviour
 
         if (Input.GetKeyDown("c"))
         {
-            Debug.Log("si esta bloqueando");
+            
             animator.SetBool("block", true);
+            Debug.Log(animator.GetBool("block"));
             guard = true;
             Can_Move = false;
         }
         else if (Input.GetKeyUp("c"))
         {
-            Debug.Log("no bloqueo");
+            
             guard = false;
             Can_Move = true;
             animator.SetBool("block", false);
+            Debug.Log(animator.GetBool("block"));
         }
         if (Time.time >= ATkTime)
         {
