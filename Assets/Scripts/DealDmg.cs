@@ -21,6 +21,7 @@ public class DealDmg : MonoBehaviour
            
             Destroy(gameObject);
             player.GetComponent<CharacterStats>().TakeDmg(DmgDealt);
+            
          
             }
 

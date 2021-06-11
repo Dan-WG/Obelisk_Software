@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3917285542664057638}
   - component: {fileID: 5779626398500425589}
   - component: {fileID: 2371215896747777523}
-  - component: {fileID: 3345572370582658464}
   - component: {fileID: 7389914169968560852}
+  - component: {fileID: -3106497119967073134}
   m_Layer: 10
   m_Name: fx__00012
   m_TagString: Player
@@ -104,22 +104,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3345572370582658464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3199597495133082681}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae26b66d9a7c887458e5fe807861c32a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DmgDealt: 30
-  Players:
-    serializedVersion: 2
-    m_Bits: 512
 --- !u!61 &7389914169968560852
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -146,3 +130,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 12.130051, y: 27.595604}
   m_EdgeRadius: 0
+--- !u!114 &-3106497119967073134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3199597495133082681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b58bb8d0b9912e4f9f4d4035aeeeeb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DmgDealt: 1
+  Players:
+    serializedVersion: 2
+    m_Bits: 512
